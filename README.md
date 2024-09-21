@@ -78,11 +78,11 @@
 
 ## Component Architecture
 
-![alt text](Fetch.png)
+![alt text](./public/Fetch.png)
 
 ## React - Redux Communication
 
-![alt text](<redux.png>)
+![alt text](<./public/redux.png>)
 
 ## Future Scope
 1. Debounced auto-complete for breeds.
