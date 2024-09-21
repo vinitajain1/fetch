@@ -5,8 +5,7 @@ import { Dog } from "../types/types";
 
 
 export const toggleFavoritesMiddleware = (dog:Dog) => async (dispatch: AppDispatch,getState: () => RootStoreState) => {
-    dispatch(toggleDogAsFavorite(dog));
-    dispatch(toggleDogFromFavoriteList(getState().dogsSlice.dogs.find((dog1)=>dog1.id===dog.id) || dog));    
+    dispatch(toggleDogFromFavoriteList(dog));    
 };
 
 export default toggleFavoritesMiddleware;

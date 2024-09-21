@@ -1,5 +1,7 @@
 import { loginError, loginStart, loginSuccess, User } from "../redux/authSlice";
+import { updateSnackBar } from "../redux/notificationSnackbarSlice";
 import { AppDispatch } from "../redux/store";
+import { Severity } from "../types/types";
 
 export const login = (user:User) => async (dispatch: AppDispatch) => {
     dispatch(loginStart());
@@ -14,7 +16,8 @@ export const login = (user:User) => async (dispatch: AppDispatch) => {
       });
       dispatch(loginSuccess(user));
     } catch (error: any) {
-      dispatch(loginError(error.message || 'Something went wrong'));
+      dispatch(loginError('Login Failed!'));
+      dispatch(updateSnackBar({open:true,message:"Authentication Failed!",severity:Severity.ERROR}));
     }
   };
 

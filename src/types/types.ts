@@ -28,10 +28,9 @@ export interface FilterObj{
     from?:number,
     sort?:string
 }
-  
-export interface LocationSearchParams{
-    city?:string,
-    states?:string[] | null
+
+export interface FavoritesState{
+    dogs:Dog[]
 }
 
 export enum LoadingStatus {
@@ -48,8 +47,20 @@ export interface AppState{
     total:number,
     filterObj:FilterObj
     status:LoadingStatus
-    error: string | null,
-    locationSearchParams:LocationSearchParams,
+    error: string | null
+}
+
+export enum Severity{
+    SUCCESS = 'success',
+    ERROR = 'error',
+    WARNING = 'warning',
+    INFO = 'info'
+}
+
+export interface NotificationSnackbarState{
+    open:boolean,
+    message:string,
+    severity: Severity
 }
 
 //API Response types
@@ -67,3 +78,5 @@ export interface LocationsSearchListResponse{
 }
 
 export type Cursor = number;
+
+export type BreedsResponse = string[]; 

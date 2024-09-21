@@ -9,7 +9,7 @@ export default function Login(){
             <section>
                 <div className="flex gap-10 items-center justify-center">
                     <LoginForm/>
-                    <img src="./login-background.jpg" className="h-full"></img>
+                    <img src="./login-background_processed.jpg" className="h-full"></img>
                 </div>
             </section>
         </div>

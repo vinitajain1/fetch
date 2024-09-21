@@ -54,13 +54,18 @@ export default function LoginForm() {
             }
         }
     }
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+          handleLoginButtonClick(event);
+        }
+      };
     return (
         <Card className='shadow-custom bg-white ' variant="outlined">
-            <form className='p-20 flex flex-col gap-8'>
-                <h1 className="text-customPurple text-2xl font-bold">Log In</h1>
-                <TextField label="Username" variant="outlined" onChange={handleNameChange} error={nameError} />
-                <TextField label="Email" variant="outlined" onChange={handleEmailChange} error={emailError} />
-                <Button onClick={handleLoginButtonClick} role="button" variant="outlined">Submit</Button>
+            <form className='p-20 flex flex-col gap-8' aria-labelledby='login-title' onKeyDown={handleKeyPress}>
+                <h1 id='login-title' className="text-customPurple text-2xl font-bold">Log In</h1>
+                <TextField label="Username" variant="outlined" onChange={handleNameChange} error={nameError} required/>
+                <TextField label="Email" variant="outlined" onChange={handleEmailChange} error={emailError} required/>
+                <Button onClick={handleLoginButtonClick} role="button" variant="outlined" aria-label='submit login form'>Submit</Button>
             </form>
         </Card>
       

@@ -1,19 +1,22 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authSlice, { AuthState } from "./authSlice";
 import dogsSlice, { initialState } from "./dogsSlice";
-import favoritesSlice, { FavoritesState } from "./favoritesSlice";
-import { AppState } from "../types/types";
+import favoritesSlice from "./favoritesSlice";
+import { AppState, FavoritesState, NotificationSnackbarState } from "../types/types";
+import notificationSnackbarSlice from "./notificationSnackbarSlice";
 
 export interface RootStoreState {
-    authSlice:AuthState
+    authSlice:AuthState;
     dogsSlice: AppState;
-    favoritesSlice: FavoritesState
+    favoritesSlice: FavoritesState;
+    notificationSnackbarSlice:NotificationSnackbarState;
 }
 
 const appReducer = combineReducers({
     authSlice,
     dogsSlice,
-    favoritesSlice
+    favoritesSlice,
+    notificationSnackbarSlice
 });
 
 const rootReducer = (state: any, action: any) => {

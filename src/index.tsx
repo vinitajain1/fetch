@@ -9,6 +9,8 @@ import Browse from './Browse';
 import Favorites from './Favorites';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import NotificationSnackbar from './components/NotificationSnackbar';
 const router = createBrowserRouter([
   {
     path:"/dashboard",
@@ -33,16 +35,16 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const queryClient = new QueryClient();
 root.render(
-  
   <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <RouterProvider router={router}/>
+        <NotificationSnackbar/>
       </Provider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

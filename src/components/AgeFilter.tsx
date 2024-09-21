@@ -15,15 +15,20 @@ export default function AgeFilter(){
     };
     return (
         <div className="border border-customBorder p-4">
-            <label>Dog Age</label>
+            <label htmlFor="dog-age-slider" id="dog-age-slider-label">Dog Age</label>
             <Slider
+                role='slider'
+                aria-valuemin={0}
+                aria-valuemax={15}
+                aria-valuetext={`Age range selected: ${ageRange[0]} to ${ageRange[1]} years`}
+                aria-labelledby="dog-age-slider-label"
                 value={ageRange}
                 onChange={handleAgeChange}
                 valueLabelDisplay="auto"
                 min={0}
                 max={15}
                 step={1}/>
-            <p className="text-sm">Selected age in years: {ageRange[0]} - {ageRange[1]}</p>  
+            <p className="text-sm">Age range selected: {ageRange[0]} - {ageRange[1]} years</p>  
         </div>
     )
     

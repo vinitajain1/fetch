@@ -21,10 +21,6 @@ export const initialState: AppState = {
     prev: '',
     total: 0,
     error: null,
-    locationSearchParams: {
-        city: '',
-        states: null,
-    },
     filterObj: {
         breeds: [],
         zipCodes: [],
@@ -52,12 +48,6 @@ const dogSlice = createSlice({
                     return dog;
                 });
             }
-        },
-        updateCity: (state, action: { payload: UpdateCityPayload }) => {
-            state.locationSearchParams.city = action.payload || '';
-        },
-        updateState: (state, action: { payload: UpdateStatePayload }) => {
-            state.locationSearchParams.states = action.payload || [];
         },
         updateSelectedBreeds: (state, action: { payload: UpdateSelectedBreedsPayload }) => {
             state.filterObj.breeds = action.payload || [];
@@ -101,8 +91,6 @@ export const {
     fetchingDogsSuccess,
     toggleDogAsFavorite,
     updateZipCodes,
-    updateCity,
-    updateState,
     updateSelectedBreeds,
     updateMinMaxAge,
     updateSortValue,

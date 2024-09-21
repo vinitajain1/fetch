@@ -1,30 +1,21 @@
 import { Autocomplete, Chip, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootStoreState } from "../redux/store";
-import { updateState, updateZipCodes } from "../redux/dogsSlice";
+import { updateZipCodes } from "../redux/dogsSlice";
 import { useState } from "react";
 
 
-export default function StateFilter(){
-    const state:string[] = useSelector((store:RootStoreState)=>store.dogsSlice.locationSearchParams.states) || [];
+export default function ZipCodeFilter(){
+    const zipCodes:string[] = useSelector((store:RootStoreState)=>store.dogsSlice.filterObj.zipCodes) || [];
     const [currInputValue, setCurrInputValue] = useState<string>("");
     const dispatch = useDispatch<AppDispatch>();
     const handleStateChange = (event: React.SyntheticEvent<Element>, value: any, reason: string, details?: any)=>{
-      const selectedValue: string[] = Array.isArray(value) 
-    ? value.map((val) => val.toUpperCase()) 
-    : typeof value === 'string' 
-        ? value.split(',').map((val) => val.toUpperCase()) 
-        : null;
-      if(selectedValue.length==0){
-        dispatch(updateState(null));
-      }else{
-        dispatch(updateState(selectedValue));
-      }
-      dispatch(updateZipCodes([]));
+      const selectedValue: string[] = typeof value === 'string' ? value.split(',') : value;
+        dispatch(updateZipCodes(selectedValue));
     };
     const handleBlur = () => {
-      if (currInputValue && !state?.includes(currInputValue)) {
-        dispatch(updateState([...state,currInputValue]));
+      if (currInputValue && !zipCodes?.includes(currInputValue)) {
+        dispatch(updateZipCodes([...zipCodes,currInputValue]));
       }
       setCurrInputValue("");
     };
@@ -32,7 +23,8 @@ export default function StateFilter(){
       <Autocomplete
         multiple
         freeSolo
-        value={state||[]}
+        aria-multiselectable={true}
+        value={zipCodes||[]}
         inputValue={currInputValue}
         onInputChange={(_, newInputValue) => setCurrInputValue(newInputValue)}
         onChange={handleStateChange}
@@ -47,8 +39,9 @@ export default function StateFilter(){
             onBlur={handleBlur} 
             {...params}
             variant="outlined"
-            label="Enter two letter State"
+            label="Filter by zipcode"
             placeholder="Type and press Enter"
+            aria-label="Zip code filter"
         />
       )}
     />

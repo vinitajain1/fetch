@@ -20,6 +20,19 @@ export const messages = {
   NoDogsFoundMessage:"🐾 Oops! We couldn't find any furry friends that match your search criteria. But don’t worry! You can try adjusting your filters or searching for different breeds. Your perfect companion might just be a click away! Happy searching! 🐶💕"
 }
 
+export const MatchMessages = [
+  "I love chasing frisbees in the park! Nothing beats a good game of fetch. 🎾🐕",
+  "Cuddles are my specialty. I'm the perfect snuggle buddy after a long day. 🐶❤️",
+  "Catch me zooming around the yard! I’ve got lots of energy and love to play. 🏃‍♂️🐾",
+  "I’m a water lover! Splashing in the lake is my idea of a perfect day. 💦🐕",
+  "Treats? Did someone say treats? I’ll do anything for a yummy snack. 🍖🐾",
+  "I might look tough, but I’m a total softie at heart. Belly rubs are my weakness! 🐾💕",
+  "I’m super friendly and love making new friends—humans and dogs alike! 🐕👫",
+  "Adventure awaits! I’m always ready for a hike or a long walk in the woods. 🌲🐕‍🦺",
+  "I’m a curious explorer, always sniffing out new things and places. 🐕👃",
+  "I’m a couch potato at heart. Let’s relax and watch some TV together! 📺🐾"
+];
+
 const customCardColors = [
     "#ffccb0",
     "#ffdbe0",

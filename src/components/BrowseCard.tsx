@@ -1,8 +1,7 @@
 import FavoriteIcon  from "@mui/icons-material/Favorite";
-import { Card, CardActions, CardContent, CardMedia, IconButton, Pagination, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootStoreState } from "../redux/store";
-import getDogsActionCreator from "../middleware/filterDogsMiddleware";
+import { Card, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
 import toggleFavoritesMiddleware from "../middleware/toggleFavoritesMiddleware";
 import { getColorClass } from "../utils/utilities";
 import { Dog } from "../types/types";
@@ -10,7 +9,9 @@ import { Dog } from "../types/types";
 
 interface BrowseCardProps{
     dog: Dog,
-    index:number
+    index:number,
+    showFavIcon:boolean,
+    isFavorite?:boolean
 }
 
 const BrowseCard = (props:BrowseCardProps) => {
@@ -19,15 +20,16 @@ const BrowseCard = (props:BrowseCardProps) => {
         dispatch(toggleFavoritesMiddleware(props.dog));
     }
     return (
-        <Card className="animate-fadeIn" sx={{ width: 300, marginBottom: 2,
+        <Card role='article' className="animate-fadeIn" sx={{ width: 300, marginBottom: 2,
             backgroundColor:getColorClass(props.index)
              }}>
             <CardMedia
-                sx={{ width:300,height:200,
+                sx={{ width:300,height:200,backgroundSize:'contain',
                     transition: "transform 0.3s ease-in-out","&:hover": {
               transform: "scale3d(1.05, 1.05, 1)",
             },}}
                 image={props.dog.img}
+                src={`Image of ${props.dog.name}`}
                 title={props.dog.name}
             />
             <CardContent className="text-customPurple">
@@ -53,11 +55,11 @@ const BrowseCard = (props:BrowseCardProps) => {
                     <span>Zip code: </span>{props.dog.zip_code} 
                 </Typography>
             </CardContent>
-            <CardActions>
+           { props.showFavIcon && <CardActions>
                 <IconButton role="button" onClick={handleOnClick} aria-label="add to favorites">
-                    <FavoriteIcon sx={{ color: props.dog.favorited ? 'red' : 'grey' }} />
+                    <FavoriteIcon sx={{ color: props.isFavorite ? 'red' : 'grey' }} />
                 </IconButton>
-            </CardActions>
+            </CardActions>}
         </Card>
     );
 };

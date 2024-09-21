@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Dog } from "../types/types";
+import { FavoritesState } from "../types/types";
 
-export interface FavoritesState{
-    dogs:Dog[]
-}
 const initialFavoritesState:FavoritesState = {
     dogs:[]
 }

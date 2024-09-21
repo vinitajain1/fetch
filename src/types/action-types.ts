@@ -1,4 +1,4 @@
-import { Dog, Location } from "./types";
+import { Dog, Location, Severity } from "./types";
 
 // Action payload types
 export type UpdateZipCodesPayload = string[];
@@ -17,3 +17,9 @@ export type FetchingDogsSuccessPayload = {
 };
 
 export type FetchingResponseFailedPayload = string;
+
+export type ShowSnackbarPayload = {
+    message?:string,
+    open:boolean,
+    severity?:Severity
+}

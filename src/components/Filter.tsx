@@ -5,9 +5,8 @@ import { AppDispatch } from "../redux/store";
 import filterDogsMiddleware from "../middleware/filterDogsMiddleware";
 import BreedFilter from "./BreedFilter";
 import AgeFilter from "./AgeFilter";
-import CityFilter from "./CityFilter";
-import StateFilter from "./StateFilter";
 import SortFilter from "./SortFilter";
+import ZipCodeFilter from "./ZipCodeFilter";
 
 export default function Filter(){
     const dispatch = useDispatch<AppDispatch>();
@@ -21,18 +20,17 @@ export default function Filter(){
     }
     return (
         <div className="pl-10 pr-20 py-7 flex justify-center gap-7 w-full bg-customBackground">
-            <Accordion expanded={expanded} onChange={handleAccordionChange}>
-                <AccordionSummary>
+            <Accordion expanded={expanded} onChange={handleAccordionChange} aria-label="Dog Filters">
+                <AccordionSummary role="button" aria-controls="filter-content" id='filter-header'>
                     <p className="text-customPurple font-bold">I am looking for a dog that...</p>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails id='filter-content'>
                     <div className="flex flex-col gap-4 p-2">
                         <BreedFilter/>
                         <AgeFilter/>
-                        <CityFilter/>
-                        <StateFilter/>
+                        <ZipCodeFilter/>
                         <SortFilter/>
-                        <Button role="button" variant="outlined" onClick={handleOnClick}>Filter</Button>
+                        <Button role="button" aria-label="apply filters" variant="outlined" onClick={handleOnClick}>Filter</Button>
                     </div>
                 </AccordionDetails>
             </Accordion>
