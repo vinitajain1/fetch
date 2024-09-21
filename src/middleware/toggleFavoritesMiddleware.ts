@@ -1,4 +1,3 @@
-import { toggleDogAsFavorite } from "../redux/dogsSlice";
 import { toggleDogFromFavoriteList } from "../redux/favoritesSlice";
 import { AppDispatch, RootStoreState } from "../redux/store";
 import { Dog } from "../types/types";

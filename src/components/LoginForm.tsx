@@ -1,8 +1,7 @@
 import { Button, TextField } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
 import Card from '@mui/material/Card';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { User } from '../redux/authSlice';
 import login from '../middleware/loginMiddleware';
 import { useNavigate } from 'react-router-dom';

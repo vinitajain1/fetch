@@ -6,7 +6,7 @@ import BrowseCard from "./BrowseCard";
 import { useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { messages } from "../utils/utilities";
-import { Dog, FavoritesState, LoadingStatus } from "../types/types";
+import { Dog, LoadingStatus } from "../types/types";
 
 const BrowseList: React.FC = () => {
     const dogs:Dog[] = useSelector<RootStoreState,Dog[]>((store:RootStoreState) => store.dogsSlice.dogs);
@@ -17,7 +17,7 @@ const BrowseList: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     useEffect(()=>{
         dispatch(filterDogsMiddleware());
-    },[])
+    },[dispatch])
     const handlePaginationChange = (event: React.ChangeEvent<unknown>, value: number)=>{
         const cursor = (value-1)*25;
         dispatch(filterDogsMiddleware(cursor));

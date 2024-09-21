@@ -11,7 +11,7 @@ const favoritesSlice = createSlice({
         toggleDogFromFavoriteList:(state,action)=>{
             if(action.payload){
                 const dogIndex = state.dogs.findIndex((dog)=>dog.id === action.payload.id);
-                if(dogIndex==-1){
+                if(dogIndex===-1){
                     state.dogs.push(action.payload);
                 }else{
                     state.dogs.splice(dogIndex,1);

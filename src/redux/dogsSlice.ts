@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
     UpdateZipCodesPayload,
     UpdateDogLocationPayload,
-    UpdateCityPayload,
-    UpdateStatePayload,
     UpdateSelectedBreedsPayload,
     UpdateSortValuePayload,
     UpdateMinMaxAgePayload,

@@ -2,11 +2,10 @@ import { useSelector } from "react-redux";
 import BrowseCard from "./components/BrowseCard";
 import { RootStoreState } from "./redux/store";
 import { Button, Modal, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Sheet from '@mui/joy/Sheet';
-import { ModalClose } from "@mui/joy";
-import { Dog, FavoritesState } from "./types/types";
 import { MatchMessages } from "./utils/utilities";
+import { Dog, FavoritesState } from "./types/types";
 
 interface Match {
     match: string
