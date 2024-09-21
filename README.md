@@ -2,11 +2,12 @@
 
 ## Steps to run locally
 
-1. Clone the repo
-2. Run the following commands in terminal in order:<br>
+1. Node version : 20.12.2 and above must be installed
+2. Clone the repo
+3. Run the following commands in terminal in order:<br>
     `npm i`<br>
     `npm run start`
-3. Open http://localhost:3000 to view it in the browser.
+4. Open http://localhost:3000 to view it in the browser.
 
 
 ## Tech Stack
