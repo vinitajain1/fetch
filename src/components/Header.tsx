@@ -1,10 +1,11 @@
-import React from "react";
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootStoreState } from "../redux/store";
 import logoutMiddleware from "../middleware/logoutMiddleware";
 import { MAIN_URL } from "../utils/utilities";
+import { IconButton } from '@mui/material';
 
 export default function Header() {
   const user: User = useSelector((store: RootStoreState) => store.authSlice.user);
@@ -26,7 +27,7 @@ export default function Header() {
         FETCH
       </h1>
       <nav aria-label="main navigation">
-        <ul className="p-0 m-0 list-none flex flex-col md:flex-row gap-4 md:gap-8 text-lg md:text-xl font-bold text-customPurple">
+        <ul className="p-0 m-0 list-none flex flex-col md:flex-row gap-4 md:gap-8 text-lg md:text-xl font-bold text-customPurple items-center">
           <li>
             <span>Hello, {user?.name.toUpperCase()}</span>
           </li>
@@ -57,6 +58,15 @@ export default function Header() {
             >
               Logout
             </Link>
+          </li>
+          <li>
+          <IconButton
+              component="a"
+              href="https://github.com/vinitajain1/fetch"
+              target="_blank"
+              aria-label="GitHub repository">
+            <GitHubIcon fontSize="large" className="text-customPurple" />
+          </IconButton>
           </li>
         </ul>
       </nav>
