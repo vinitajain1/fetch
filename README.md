@@ -19,7 +19,9 @@ https://fetch-project-vinita-jain.netlify.app/
 1. run the following to run the integration test:<br>
     `npm run test`
 
-![alt text](public/testcases.png)
+![alt text](/readme-image/testcases.png)
+
+![alt text](/readme-image/test-case-setup.png)
 
 
 ## Tech Stack
@@ -92,11 +94,11 @@ https://fetch-project-vinita-jain.netlify.app/
 
 ## Component Architecture
 
-![alt text](./public/Fetch.png)
+![alt text](./readme-image/Fetch.png)
 
 ## React - Redux Communication
 
-![alt text](<./public/redux.png>)
+![alt text](<./readme-image/redux.png>)
 
 ## Future Scope
 1. Debounced auto-complete for breeds.
