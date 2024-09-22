@@ -4,7 +4,7 @@ import { RootStoreState } from "./redux/store";
 import { Button, Modal, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import Sheet from '@mui/joy/Sheet';
-import { MatchMessages } from "./utils/utilities";
+import { MAIN_URL, MatchMessages, noFavFound } from "./utils/utilities";
 import { Dog, FavoritesState } from "./types/types";
 
 interface Match {
@@ -18,7 +18,7 @@ export default function Favorites() {
     const dogsList = favoriteDogs.dogs;
 
     const handleClick = async () => {
-        const res = await fetch(`https://frontend-take-home-service.fetch.com/dogs/match`, {
+        const res = await fetch(`${MAIN_URL}/dogs/match`, {
             credentials: "include",
             method: 'POST',
             headers: {
@@ -47,9 +47,7 @@ export default function Favorites() {
                         })
                     ) : (
                         <div className="text-xl top-14 font-bold text-customPurple">
-                            <p>
-                                "Uh-oh, your favorites list is feeling a little lonely! 🐾 Why not browse through the adorable dogs and find your next furry friend to add? Your future best buddy is just a click away!"
-                            </p>
+                            <p>{noFavFound}</p>
                         </div>
                     )}
                 </div>

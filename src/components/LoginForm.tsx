@@ -25,10 +25,10 @@ export default function LoginForm() {
     const validateName = (name)=>{
         if(name){
             setNameError(false);
-            return false;
+            return true;
         }else{
             setNameError(true);
-            return true;
+            return false;
         }
     }
     const validateEmail = (email)=>{
@@ -42,8 +42,9 @@ export default function LoginForm() {
         }
     }
     const handleLoginButtonClick=async(e)=>{
-        let isValid = !emailError && !nameError;
-        if(isValid){
+        let isValidEmail = validateEmail(email) 
+        let isValidName = validateName(name);
+        if(isValidEmail && isValidName){
             const user:User = {name,email}
             try{
                 await dispatch(login(user));

@@ -14,13 +14,13 @@ export default function BreedFilter(){
     };
     return (
       breeds.data && 
-        <Autocomplete 
+        <Autocomplete
+            fullWidth
             aria-multiselectable={true}
             options={breeds.data}
             value={selectedBreedValues}
             multiple
             disablePortal
-            sx={{ width: 600 }}
             onChange={handleBreedChange}
             renderInput={(params) => <TextField aria-label="Breed selection" {...params} label="Breed" />}/>           
     )

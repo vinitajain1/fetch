@@ -8,20 +8,20 @@ import Login from './Login';
 import Browse from './Browse';
 import Favorites from './Favorites';
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import { setupStore } from './redux/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import NotificationSnackbar from './components/NotificationSnackbar';
-const router = createBrowserRouter([
+export const routes = [
   {
     path:"/dashboard",
     element:<App/>,
     children:[
       {
-        path:"/dashboard/browse",
+        path:"browse",
         element:<Browse/>
       },
       {
-        path:"/dashboard/favorites",
+        path:"favorites",
         element:<Favorites/>
       }
     ]
@@ -30,11 +30,13 @@ const router = createBrowserRouter([
     path:"/",
     element: <Login/>
   },
-])
+]
+const router = createBrowserRouter(routes)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const store = setupStore();
 const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>

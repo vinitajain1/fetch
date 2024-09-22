@@ -1,14 +1,25 @@
 # Fetch App
 https://fetch-project-vinita-jain.netlify.app/
 
-## Steps to run locally
-
+## Steps application to run locally
+### OPTION 1: Using Docker
+1. Clone the repo
+2. Run the following:<br>
+    `docker compose up --build`
+3. Open http://localhost:3000 to view it in the browser.
+### OPTION 2: Have Node version 20 and above installed.
 1. Node version : 20.12.2 and above must be installed
 2. Clone the repo
 3. Run the following commands in terminal in order:<br>
     `npm i`<br>
     `npm run start`
 4. Open http://localhost:3000 to view it in the browser.
+
+## Steps to run the tests
+1. run the following to run the integration test:<br>
+    `npm run test`
+
+![alt text](public/testcases.png)
 
 
 ## Tech Stack
@@ -20,6 +31,8 @@ https://fetch-project-vinita-jain.netlify.app/
 6. Material UI
 7. Tailwind CSS
 8. HTML
+9. Jest
+10. React testing library
 
 ## APIs Used
 1. POST /auth/login
@@ -60,9 +73,7 @@ https://fetch-project-vinita-jain.netlify.app/
 13. Dog can be removed from favorite from favorites page and from browse page. This is handled consistantly.
 14. Favorites list remains between searches.
 15. Validation added for login form.
-
-
-
+16. Dockerized application
 
 ## Non-Functional Requirements
 1. The UI is intuitive and user friendly, allowing users to find dogs with minimal clicks
@@ -77,6 +88,7 @@ https://fetch-project-vinita-jain.netlify.app/
         * **Efficient Caching**: Data is cached to minimize unnecessary network requests.
         * **Error Handling**: Handles network errors and invalid response formats.
         * **Control Refetching**: Customize when and how the hook refetches the data to optimize performance.
+7. Wrote integration test cases using React testing library and Jest.
 
 ## Component Architecture
 
@@ -89,3 +101,5 @@ https://fetch-project-vinita-jain.netlify.app/
 ## Future Scope
 1. Debounced auto-complete for breeds.
 2. Search by city and state.
+3. Add more Integration and Unit test cases
+

@@ -4,6 +4,9 @@ import { RootStoreState } from "../redux/store";
 import { updateMinMaxAge} from "../redux/dogsSlice";
 import { UpdateMinMaxAgePayload } from "../types/action-types";
 
+function ariaValueText(value:number,index:number) {
+    return `Age range selected for index ${index} - ${value} years`;
+  }
 
 export default function AgeFilter(){
     const dispatch = useDispatch();
@@ -20,7 +23,7 @@ export default function AgeFilter(){
                 role='slider'
                 aria-valuemin={0}
                 aria-valuemax={15}
-                aria-valuetext={`Age range selected: ${ageRange[0]} to ${ageRange[1]} years`}
+                getAriaValueText={ariaValueText}
                 aria-labelledby="dog-age-slider-label"
                 value={ageRange}
                 onChange={handleAgeChange}

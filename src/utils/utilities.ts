@@ -20,6 +20,8 @@ export const messages = {
   NoDogsFoundMessage:"🐾 Oops! We couldn't find any furry friends that match your search criteria. But don’t worry! You can try adjusting your filters or searching for different breeds. Your perfect companion might just be a click away! Happy searching! 🐶💕"
 }
 
+export const noFavFound = "Uh-oh, your favorites list is feeling a little lonely! 🐾 Why not browse through the adorable dogs and find your next furry friend to add? Your future best buddy is just a click away!"
+
 export const MatchMessages = [
   "I love chasing frisbees in the park! Nothing beats a good game of fetch. 🎾🐕",
   "Cuddles are my specialty. I'm the perfect snuggle buddy after a long day. 🐶❤️",

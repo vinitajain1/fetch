@@ -27,10 +27,16 @@ const rootReducer = (state: any, action: any) => {
     return appReducer(state, action);
   };
 
-const store = configureStore<RootStoreState>({
-    reducer:rootReducer
-});
+export function setupStore(preloadedState?: Partial<RootStoreState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState
+  })
+}
 
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof setupStore>
+export type AppDispatch = AppStore['dispatch']
 
-export default store
+
+export default setupStore
